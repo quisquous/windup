@@ -19,6 +19,8 @@ craydate-build = {path = "../../craydate/craydate-build"}
 name = "make_pdx"
 [[bin]]
 name = "run_simulator"
+[[bin]]
+name = "windup_bin"
 
 [features]
 bins = ["craydate-build", "game-assets"]
