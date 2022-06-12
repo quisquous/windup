@@ -6,7 +6,6 @@ extern crate alloc;
 
 mod gameloop;
 
-#[craydate::main]
-async fn main(api: craydate::Api) -> ! {
+pub async fn main(api: craydate::Api) -> ! {
   gameloop::run(api).await
 }

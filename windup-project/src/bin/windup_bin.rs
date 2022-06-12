@@ -1,7 +1,9 @@
 #![deny(clippy::all)]
 #![no_std]
 #![no_main]
+#![feature(never_type)]
 
+extern crate alloc;
 extern crate game;
 
 #[cfg(not(doc))]
@@ -12,4 +14,10 @@ fn panic_handler(info: &core::panic::PanicInfo) -> ! {
   craydate::panic_handler(info)
 }
 
-// TODO ^ what of all of this can get moved here or elsewhere
+// TODO: for SOME reason if you call the proc macro inside of windup/lib.rs, then
+// .capi_handler is dropped from the resulting link (however bss start/end are fine???).
+// If you call it here, then it is included properly.
+#[craydate::main]
+async fn main(api: craydate::Api) -> ! {
+  game::main(api).await
+}
