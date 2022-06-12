@@ -1,0 +1,7 @@
+[target.thumbv7em-none-eabihf]
+rustflags = [
+  "-C", "link-arg=-Map=game.map",
+  "-C", "link-arg=-Tlink_map.ld",
+  "-C", "link-arg=--cref",
+  "-C", "link-arg=--gc-sections",
+]
